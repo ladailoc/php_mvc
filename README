@@ -1,8 +1,13 @@
 Folder app -> Viết toàn bộ mô hình MVC 
 
-
-
-
-
-
 File .htaccess -> cấu hình để rewrite url
+
+
+
+Folder configs dùng để cấu hình
+
+-------------------------------------------------
+index làm việc với bootstrap
+=> bootstrap gọi config routes và làm việc với app
+=> app để điều hướng gọi controller tương ứng dựa vào url
+=> trong các controller gồm các class và các action (method)
