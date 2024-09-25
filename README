@@ -1,19 +1,31 @@
-Folder app -> Viết toàn bộ mô hình MVC 
+- Folder app -> Viết toàn bộ mô hình MVC 
 
-File .htaccess -> cấu hình để rewrite url
+- File .htaccess -> cấu hình để rewrite url
 
-Folder configs dùng để cấu hình
+- Folder configs dùng để cấu hình
 
-App 
-Model -> lấy dữ liệu từ DB
-Controller -> lấy dữ liệu từ Model
+- App 
+  Model -> lấy dữ liệu từ DB
+  Controller -> lấy dữ liệu từ Model
 
-Controller kế thừa từ core/Controller để có thể call Model và get data từ Model
+- Controller kế thừa từ core/Controller để có thể call Model và get data từ Model
 
-Sau khi controller lấy dc data thì render ra view 
-Code render sẽ đc gọi từ core/Controller 
+- Sau khi controller lấy dc data thì render ra view 
 
+- Code render sẽ đc gọi từ core/Controller 
+
+- Core/Controller có nhiệm vụ load model và load view 
+
+- Khi truyền dữ liệu từ controller qua layout và muốn data này render sang view thì sẽ truyền dữ liệu 
+bằng mảng 2 chiều thông qua sub_content
+VD :
+    $this->data['content'] = 'product/detail' 
+    $this->data['sub_content']['title'] = ... 
+=> Trong phần layout sẽ render ra view và truyền dữ liệu từ controller qua như
+VD : 
+    $this->render($content, $sub_content)
 -------------------------------------------------
+
 index làm việc với bootstrap
 => bootstrap gọi config routes và làm việc với app
 => app để điều hướng gọi controller tương ứng dựa vào url

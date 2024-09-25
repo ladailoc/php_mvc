@@ -9,18 +9,29 @@ class Product extends Controller{
     public function list_product(){
         $product = $this->model('ProductModel');
         $dataProduct = $product->getListProduct();
-        $title = 'Danh sách sản phẩm';
+        // Data to render view
+        $this->data['sub_content']['product_list'] = $dataProduct;
+        
+        // Root view to render
+        $this->data['content'] = 'products/list';
+        $this->data['page_title'] = 'Trang danh sách';
 
-        $this->data['product_list'] = $dataProduct;
-        $this->data['page_title'] = $title;
-        // Render view
-        $this->render('products/list', $this->data);
+        // Render layout
+        $this->render('layouts/client_layout', $this->data);
     }
 
     public function detail($id=0){
         $product = $this->model('ProductModel');
-        $this->data['info'] = $product->getProductDetail($id);
-        $this->render('products/detail', $this->data);
+        // Data to render view
+        $this->data['sub_content']['info'] = $product->getProductDetail($id);
+        $this->data['sub_content']['title'] = 'Chi tiết sản phẩm';
+
+        // Root view to render
+        $this->data['page_title'] = 'Trang chi tiết';
+        $this->data['content'] = 'products/detail';
+
+        // Render layout
+        $this->render('layouts/client_layout', $this->data);
     }
 }
 
