@@ -2,9 +2,11 @@ Folder app -> Viết toàn bộ mô hình MVC
 
 File .htaccess -> cấu hình để rewrite url
 
-
-
 Folder configs dùng để cấu hình
+
+App 
+Model -> lấy dữ liệu từ DB
+Controller -> lấy dữ liệu từ Model 
 
 -------------------------------------------------
 index làm việc với bootstrap

@@ -1,15 +1,19 @@
 <?php
-class Home{
+class Home extends Controller{
+    public $model_home;
+    public function __construct(){
+        $this->model_home = $this->model('HomeModel');
+    }
     function index(){
-       echo "Trang chủ"; 
-    }
-    function detail($id="", $slug=""){
-        echo "ID : $id<br>";
-        echo "SLUG : $slug";
-    }
-    public function search(){
-        $keyword = $_GET['keyword'];
-        echo "Từ khóa tìm kiếm: ". $keyword;
+        $data = $this->model_home->getList();
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+
+        $detail = $this->model_home->getDetail(2);
+        echo '<pre>';
+        print_r($detail);
+        echo '</pre>';
     }
 }
 
