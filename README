@@ -6,7 +6,12 @@ Folder configs dùng để cấu hình
 
 App 
 Model -> lấy dữ liệu từ DB
-Controller -> lấy dữ liệu từ Model 
+Controller -> lấy dữ liệu từ Model
+
+Controller kế thừa từ core/Controller để có thể call Model và get data từ Model
+
+Sau khi controller lấy dc data thì render ra view 
+Code render sẽ đc gọi từ core/Controller 
 
 -------------------------------------------------
 index làm việc với bootstrap
