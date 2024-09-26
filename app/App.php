@@ -1,8 +1,10 @@
 <?php
 class App{
-    private $__controller, $__action, $__params;
+    private $__controller, $__action, $__params, $__routes;
     function __construct(){
         global $routes;
+
+        $this->__routes = new Route();
         $this->__controller = $routes['default_controller'];
         $this->__action = 'index';
         $this->__params = [];
@@ -20,7 +22,28 @@ class App{
 
     public function handleUrl(){
         $url = $this->getUrl();
+        $url = $this->__routes->handleRoute($url);
         $url = array_filter(explode('/', $url)); // remove empty array elements
+        $url = array_values($url); // re-index array
+
+        // Xử lý trường hợp đường dẫn có chia folder
+        $urlCheck = '';
+        if (!empty($url)){
+            foreach ($url as $key => $item) {
+                $urlCheck .= $item.'/';
+                $fileCheck = rtrim($urlCheck, '/');
+                $fileArr = explode('/', $fileCheck);
+                $fileArr[count($fileArr) - 1] = ucfirst($fileArr[count($fileArr) - 1]);
+                $fileCheck = implode('/', $fileArr);
+                if (!empty($url[$key - 1])) 
+                    unset($url[$key - 1]);
+                if (file_exists('app/controllers/'.$fileCheck.'.php')) {
+                    $urlCheck = $fileCheck;
+                    break;
+                }
+            }
+        }
+        
         $url = array_values($url); // re-index array
 
         // Xử lý controller
@@ -31,8 +54,8 @@ class App{
         else 
             $this->__controller = ucfirst($this->__controller); 
 
-        if (file_exists('app/controllers/' . $this->__controller . '.php')){
-            require_once 'controllers/' . $this->__controller . '.php';
+        if (file_exists('app/controllers/' . $urlCheck . '.php')){
+            require_once 'controllers/' . $urlCheck . '.php';
 
             // Kiểm tra class controller có tồn tại không
             if (class_exists($this->__controller))

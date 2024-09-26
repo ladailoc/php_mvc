@@ -2,6 +2,8 @@
 <head>
     <title><?php  echo (!empty($page_title))? $page_title : "Website" ?></title>
     <meta charset="UTF-8">
+
+    <!-- Kết nối với file css và js thông qua biến _WEB_ROOT_: -->
     <link type="text/css" rel="stylesheet" href="<?php echo _WEB_ROOT_ ?>/public/assets/clients/css/style.css">
 </head>
 <body>

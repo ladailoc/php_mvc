@@ -19,6 +19,7 @@ $web_root = $web_root.$folder; // http://localhost/php_mvc
 define('_WEB_ROOT_', $web_root);
 
 require_once 'configs/routes.php';
+require_once 'core/Route.php'; 
 require_once 'core/Controller.php'; // Load base Controller
 require_once 'app/App.php'; // Load app
 

@@ -24,6 +24,21 @@ VD :
 => Trong phần layout sẽ render ra view và truyền dữ liệu từ controller qua như
 VD : 
     $this->render($content, $sub_content)
+
+- Các tùy chọn biểu thức chính quy 
+  i : không phân biệt chữ hoa chữ thường
+  m : định nghĩa dấu ^ và $ ở đầu và cuối chuỗi
+  s : định nghĩa dấu . là ký tự xuống dòng
+  x : bỏ qua khoảng trắng và comment trong biểu thức chính quy
+  A : bắt đầu từ đầu chuỗi
+
+- Cấu trúc của biểu thức chính quy với dấu phân cách
+  ~: Dấu phân cách mở đầu.
+  $key: Mẫu biểu thức chính quy được tạo động từ biến $key.
+  ~: Dấu phân cách kết thúc.
+  is: Các tùy chọn cho biểu thức chính quy
+
+- Core/Route có tác dụng chỉnh url theo định dạng config routes
 -------------------------------------------------
 
 index làm việc với bootstrap
