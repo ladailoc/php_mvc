@@ -2,7 +2,7 @@
 class App{
     private $__controller, $__action, $__params, $__routes;
     function __construct(){
-        global $routes;
+        global $routes, $config;
 
         $this->__routes = new Route();
         $this->__controller = $routes['default_controller'];

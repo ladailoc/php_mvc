@@ -9,11 +9,6 @@ class Home extends Controller{
         echo '<pre>';
         print_r($data);
         echo '</pre>';
-
-        $detail = $this->model_home->getDetail(0);
-        echo '<pre>';
-        print_r($detail);
-        echo '</pre>';
     }
 }
 

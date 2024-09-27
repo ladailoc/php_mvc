@@ -18,9 +18,28 @@ $web_root = $web_root.$folder; // http://localhost/php_mvc
 // Định nghĩa hằng số _WEB_ROOT_ chứa đường dẫn gốc của website
 define('_WEB_ROOT_', $web_root);
 
-require_once 'configs/routes.php';
-require_once 'core/Route.php'; 
+/**
+ * Tự động load config
+ */
+$configs_dir = scandir('configs');
+if (!empty($configs_dir)){
+    foreach ($configs_dir as $file){
+        if ($file != '.' && $file != '..' && file_exists('configs/'.$file)){
+            require_once 'configs/'.$file;
+        }
+    }
+}
+
+// Kiểm tra config và load database
+if (!empty($config['database'])){
+    // $db_config = array_filter($config['database']);
+    require_once 'core/Connection.php';
+    require_once 'core/Database.php';
+}
+
 require_once 'core/Controller.php'; // Load base Controller
+require_once 'core/Route.php'; 
+require_once 'core/Model.php'; // Load base Model
 require_once 'app/App.php'; // Load app
 
 ?>

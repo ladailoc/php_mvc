@@ -39,6 +39,8 @@ VD :
   is: Các tùy chọn cho biểu thức chính quy
 
 - Core/Route có tác dụng chỉnh url theo định dạng config routes
+
+- HomeModel sẽ kế thừa từ Model, Model kế thừa từ Database, Database kết nối với Connection => Home Controller sẽ lấy dữ liệu từ HomeModel
 -------------------------------------------------
 
 index làm việc với bootstrap
