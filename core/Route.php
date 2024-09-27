@@ -6,6 +6,7 @@ class Route{
         unset($routes['default_controller']);
 
         // Xóa dấu / ở đầu và cuối chuỗi
+        if ($url == '/') return $url;
         $url = trim($url, '/');
         $handleUrl = $url;  
 

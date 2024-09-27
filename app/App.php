@@ -43,6 +43,9 @@ class App{
                 }
             }
         }
+        else {
+            $urlCheck = $this->__controller;
+        }
         
         $url = array_values($url); // re-index array
 
