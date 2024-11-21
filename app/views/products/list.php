@@ -2,6 +2,6 @@ DANH SÁCH SẢN PHẨM
 
 <?php
 echo "<pre>";
-print_r($page_title);
+print_r($product_list);
 echo "</pre>";
 ?>
