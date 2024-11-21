@@ -5,8 +5,8 @@ class Route{
         global $routes;
         unset($routes['default_controller']);
 
-        // Xóa dấu / ở đầu và cuối chuỗi
         if ($url == '/') return $url;
+        // Xóa dấu / ở đầu và cuối chuỗi
         $url = trim($url, '/');
         $handleUrl = $url;  
 

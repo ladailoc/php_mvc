@@ -47,3 +47,26 @@ index làm việc với bootstrap
 => bootstrap gọi config routes và làm việc với app
 => app để điều hướng gọi controller tương ứng dựa vào url
 => trong các controller gồm các class và các action (method)
+
+
+
+-----------------------------------------------------
+$SERVER['PATH_INFO'] -> là đường dẫn của web trừ thư mục gốc ra
+VD : localhost/php_mvc/home/index.php
+    -> $SERVER['PATH_INFO'] = home/index.php
+
+_DIR_ROOT_ -> là đường dẫn của trang web lớn
+VD : /Applications/Ampps/www/php_mvc
+
+_WEB_ROOT_ -> là đường dẫn http root của web
+VD : http://localhost/php_mvc 
+
+$_SERVER['HTTP_HOST'] -> là "localhost"
+
+$_SERVER['HTTPS'] -> web sử dụng giao thức https
+
+$_SERVER['HTTP'] -> web sử dụng giao thức http 
+
+$_SERVER['DOCUMENT_ROOT'] -> là đường dẫn web nhưng không có chứa tên thư mục
+VD : /Applications/Ampps/www/
+

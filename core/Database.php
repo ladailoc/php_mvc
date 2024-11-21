@@ -18,8 +18,8 @@ class Database{
         foreach ($data as $key => $value){
             $set .= "$key = '$value',";
         }
-        $set = rtrim($set, ',');
-        $condition = implode(' AND ', array_map(fn($key, $val) => "$key = $val", array_keys($where), array_values($where)));
+        $set = rtrim($set, ','); // Xóa dấu , ở cuối
+        $condition = implode(' AND ', array_map(fn($key, $val) => "$key = $val", array_keys($where), array_values($where))); //    
         $sql = "UPDATE $table SET $set WHERE $condition";
         $this->query($sql, $where);
     }

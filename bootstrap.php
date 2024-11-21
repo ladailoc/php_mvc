@@ -11,7 +11,7 @@ else
 // Thay thế tất cả các dấu \ thành /
 $dir_root = str_replace('\\', '/', _DIR_ROOT_);
 // Thay chuỗi $_SERVER['DOCUMENT_ROOT'] thành chuỗi rỗng trong chuỗi $dir_root
-$folder = str_replace($_SERVER['DOCUMENT_ROOT'], '', $dir_root);
+$folder = str_replace($_SERVER['DOCUMENT_ROOT'], '', $dir_root); // /php_mvc
 
 $web_root = $web_root.$folder; // http://localhost/php_mvc
 
